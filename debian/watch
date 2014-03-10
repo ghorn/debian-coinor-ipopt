@@ -1,0 +1,3 @@
+version=3
+
+http://www.coin-or.org/download/source/Ipopt/Ipopt-(\d[\d.]+)\.tgz

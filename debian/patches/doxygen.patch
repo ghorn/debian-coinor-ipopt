@@ -1,0 +1,66 @@
+Author: trophime <christophe.trophime@lncmi.cnrs.fr>, Roberto C. Sanchez <roberto@connexer.com>
+Description: Make it possible to build the coior-ipopt Doxygen documentation with newer versions of doxygen and latex.
+--- Ipopt-3.11.4.orig/Ipopt/contrib/sIPOPT/src/SensDenseGenSchurDriver.hpp
++++ Ipopt-3.11.4/Ipopt/contrib/sIPOPT/src/SensDenseGenSchurDriver.hpp
+@@ -33,13 +33,13 @@
+ 
+     /** Performs a backsolve on S and : Solves the system
+      *
+-     *  \f$\left[\begin{array}{c|c}
++     *  \f[\left[\begin{array}{c|c}
+      *  K & E\\\hline
+      *  E^T & 0
+      *  \end{array}
+      *  \right]
+-     *  \left[\begin{array}{c}x\\y\end{array}\right] =
+-     *  \left[\begin{array}{c}f\\g\end{array}\right]\f$
++     *  \left[\begin{array}{c}x \\ y\end{array}\right] =
++     *  \left[\begin{array}{c}f \\ g\end{array}\right]\f]
+      *
+      *  y will be stored in g at exit.
+      *  Kf should hold
+--- Ipopt-3.11.4.orig/Ipopt/src/Algorithm/IpAugSystemSolver.hpp
++++ Ipopt-3.11.4/Ipopt/src/Algorithm/IpAugSystemSolver.hpp
+@@ -21,14 +21,14 @@
+    *  base class for linear solvers that solve the augmented system,
+    *  which is defined as
+    *
+-   *  \f$\left[\begin{array}{cccc}
++   *  \f[\left[\begin{array}{cccc}
+    *  W + D_x + \delta_xI & 0 & J_c^T & J_d^T\\
+    *  0 & D_s + \delta_sI & 0 & -I \\
+    *  J_c & 0 & D_c - \delta_cI & 0\\
+    *  J_d & -I & 0 & D_d - \delta_dI
+    *  \end{array}\right]
+    *  \left(\begin{array}{c}sol_x\\sol_s\\sol_c\\sol_d\end{array}\right)=
+-   *  \left(\begin{array}{c}rhs_x\\rhs_s\\rhs_c\\rhs_d\end{array}\right)\f$
++   *  \left(\begin{array}{c}rhs_x\\rhs_s\\rhs_c\\rhs_d\end{array}\right)\f]
+    *
+    *  Since this system might be solved repeatedly for different right
+    *  hand sides, it is desirable to step the factorization of a
+--- Ipopt-3.11.4.orig/Makefile.am
++++ Ipopt-3.11.4/Makefile.am
+@@ -43,8 +43,8 @@
+ 	cd doxydoc && rm -rf html *.log *.tag
+ 	
+ install-doxydoc : doxydoc
+-	$(mkdir_p) $(DocInstallDir)/doxydoc
+-	cp -R doxydoc/html doxydoc/ipopt_doxy.tag $(DocInstallDir)/doxydoc
++	$(mkdir_p) $(DESTDIR)/$(DocInstallDir)/doxydoc
++	cp -R doxydoc/html doxydoc/ipopt_doxy.tag $(DESTDIR)/$(DocInstallDir)/doxydoc
+ 
+ uninstall-doxydoc:
+ 	if test -e $(DocInstallDir)/doxydoc ; then rm -rf $(DocInstallDir)/doxydoc ; fi
+--- Ipopt-3.11.4.orig/Makefile.in
++++ Ipopt-3.11.4/Makefile.in
+@@ -702,8 +702,8 @@
+ 	cd doxydoc && rm -rf html *.log *.tag
+ 
+ install-doxydoc : doxydoc
+-	$(mkdir_p) $(DocInstallDir)/doxydoc
+-	cp -R doxydoc/html doxydoc/ipopt_doxy.tag $(DocInstallDir)/doxydoc
++	$(mkdir_p) $(DESTDIR)/$(DocInstallDir)/doxydoc
++	cp -R doxydoc/html doxydoc/ipopt_doxy.tag $(DESTDIR)/$(DocInstallDir)/doxydoc
+ 
+ uninstall-doxydoc:
+ 	if test -e $(DocInstallDir)/doxydoc ; then rm -rf $(DocInstallDir)/doxydoc ; fi

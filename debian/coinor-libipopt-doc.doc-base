@@ -1,0 +1,15 @@
+Document: coinor-libipopt-doc
+Title: Interior-Point Optimizer, for large-scale nonlinear optimization
+Author: International Business Machines
+Abstract: Ipopt is an open-source solver for large-scale nonlinear continuous optimization.
+ It can be used from modeling environments, such as AMPL,
+ GAMS, or Matlab, and it is also available as a callable library with
+ interfaces to C++, C, and Fortran. Ipopt uses an interior point method,
+ together with a filter linear search procedure. Ipopt is part of the
+ larger COIN-OR initiative (Computational Infrastructure for Operations
+ Research).
+Section: Science/Data Analysis
+
+Format: HTML
+Index: /usr/share/doc/coinor-libipopt-doc/html/index.html
+Files: /usr/share/doc/coinor-libipopt-doc/html/*.html

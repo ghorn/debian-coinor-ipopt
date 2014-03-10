@@ -1,0 +1,21 @@
+coinor-ipopt for Debian
+-----------------------
+
+As noted in the description, this package is built against the MUMPS
+library and, by extension, its dependencies (BLAS and LAPACK).  The
+reason for this is that of all the solver options, the MUMPS library
+is the only one that is Free Software and included in Debian.  If you
+choose, you can rebuild this package against one of the other solver
+libraries, but the resulting package is almost certainly not
+distributable.
+
+Building against coinor-ipopt
+-----------------------------
+
+When building against coinor-ipopt, it may be necessary to pass one of
+'-ldmumps_seq-4.9.2' or '-ldmumps-4.9.2' to the linker.  In the future, this
+may become unnecessary through the use of pkg-config.  However, it is the
+needed in the meantime.  Please see http://bugs.debian.org/592752 for a more
+complete discussion on the subject.
+
+ -- Roberto C. Sanchez <roberto@connexer.com>  Tue, 25 Jan 2011 22:46:39 -0500

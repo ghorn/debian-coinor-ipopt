@@ -1,0 +1,85 @@
+Source: coinor-ipopt
+Section: science
+Priority: extra
+Maintainer: Roberto C. Sanchez <roberto@connexer.com>
+Build-Depends: debhelper (>= 5), autotools-dev, gfortran, libblas-dev,
+ libmumps-dev (>= 4.9.2.dfsg-4), libmumps-seq-dev (>= 4.9.2.dfsg-4),
+ liblapack-dev, doxygen-latex, ghostscript, chrpath, cdbs
+Build-Conflicts: pkg-config
+Standards-Version: 3.9.5
+Homepage: https://projects.coin-or.org/Ipopt
+Vcs-Svn: http://bollin.googlecode.com/svn/coinor-ipopt/trunk/
+Vcs-Browser: http://bollin.googlecode.com/svn/coinor-ipopt/trunk/
+
+Package: coinor-libipopt1
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Interior-Point Optimizer, for large-scale nonlinear optimization
+ Ipopt is an open-source solver for large-scale nonlinear continuous
+ optimization. It can be used from modeling environments, such as AMPL,
+ GAMS, or Matlab, and it is also available as a callable library with
+ interfaces to C++, C, and Fortran. Ipopt uses an interior point method,
+ together with a filter linear search procedure. Ipopt is part of the
+ larger COIN-OR initiative (Computational Infrastructure for Operations
+ Research).
+ .
+ The Debian package is compiled against MUMPS (as it is the only one of
+ the available solvers that is Free Software and included in Debian).
+ .
+ This package contains the library.
+
+Package: coinor-libipopt-dev
+Section: libdevel
+Architecture: any
+Depends: coinor-libipopt1 (= ${binary:Version}), libmumps-dev, ${shlibs:Depends}, ${misc:Depends}
+Description: Interior-Point Optimizer - header files
+ Ipopt is an open-source solver for large-scale nonlinear continuous
+ optimization. It can be used from modeling environments, such as AMPL,
+ GAMS, or Matlab, and it is also available as a callable library with
+ interfaces to C++, C, and Fortran. Ipopt uses an interior point method,
+ together with a filter linear search procedure. Ipopt is part of the
+ larger COIN-OR initiative (Computational Infrastructure for Operations
+ Research).
+ .
+ The Debian package is compiled against MUMPS (as it is the only one of
+ the available solvers that is Free Software and included in Debian).
+ .
+ This package contains the header files for developers.
+
+Package: coinor-libipopt-doc
+Section: doc
+Architecture: all
+Depends: libjs-jquery, ${misc:Depends}
+Description: Interior-Point Optimizer - documentation
+ Ipopt is an open-source solver for large-scale nonlinear continuous
+ optimization. It can be used from modeling environments, such as AMPL,
+ GAMS, or Matlab, and it is also available as a callable library with
+ interfaces to C++, C, and Fortran. Ipopt uses an interior point method,
+ together with a filter linear search procedure. Ipopt is part of the
+ larger COIN-OR initiative (Computational Infrastructure for Operations
+ Research).
+ .
+ The Debian package is compiled against MUMPS (as it is the only one of
+ the available solvers that is Free Software and included in Debian).
+ .
+ This package contains the documentation.
+
+Package: coinor-libipopt1-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, coinor-libipopt1 (= ${binary:Version})
+Description: Interior-Point Optimizer - debugging symbols
+ Ipopt is an open-source solver for large-scale nonlinear continuous
+ optimization. It can be used from modeling environments, such as AMPL,
+ GAMS, or Matlab, and it is also available as a callable library with
+ interfaces to C++, C, and Fortran. Ipopt uses an interior point method,
+ together with a filter linear search procedure. Ipopt is part of the
+ larger COIN-OR initiative (Computational Infrastructure for Operations
+ Research).
+ .
+ The Debian package is compiled against MUMPS (as it is the only one of
+ the available solvers that is Free Software and included in Debian).
+ .
+ This package contains the debugging symbols.
+

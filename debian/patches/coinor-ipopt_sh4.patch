@@ -1,0 +1,56 @@
+# Description: let package build successfully on sh4 architecture
+--- Ipopt-3.11.4.orig/Ipopt/configure
++++ Ipopt-3.11.4/Ipopt/configure
+@@ -5339,7 +5339,7 @@
+ 
+           ;;
+           # Ignore these flags.
+-        -lang* | -lcrt[01].o | -lcrtbegin.o | -lc | -lgcc | -libmil | -LANG:=*)
++        -lang* | -lcrt[01].o | -lcrtbegin.o | -lc | -lgcc | -libmil | -little | -LANG:=*)
+           ;;
+         -lkernel32)
+           test x"$CYGWIN" != xyes && ac_cv_f77_libs="$ac_cv_f77_libs $ac_arg"
+--- Ipopt-3.11.4.orig/ThirdParty/Blas/configure
++++ Ipopt-3.11.4/ThirdParty/Blas/configure
+@@ -4205,7 +4205,7 @@
+ 
+           ;;
+           # Ignore these flags.
+-        -lang* | -lcrt[01].o | -lcrtbegin.o | -lc | -lgcc | -libmil | -LANG:=*)
++        -lang* | -lcrt[01].o | -lcrtbegin.o | -lc | -lgcc | -libmil | -little | -LANG:=*)
+           ;;
+         -lkernel32)
+           test x"$CYGWIN" != xyes && ac_cv_f77_libs="$ac_cv_f77_libs $ac_arg"
+--- Ipopt-3.11.4.orig/ThirdParty/HSL/configure
++++ Ipopt-3.11.4/ThirdParty/HSL/configure
+@@ -4433,7 +4433,7 @@
+ 
+           ;;
+           # Ignore these flags.
+-        -lang* | -lcrt[01].o | -lcrtbegin.o | -lc | -lgcc | -libmil | -LANG:=*)
++        -lang* | -lcrt[01].o | -lcrtbegin.o | -lc | -lgcc | -libmil | -little | -LANG:=*)
+           ;;
+         -lkernel32)
+           test x"$CYGWIN" != xyes && ac_cv_f77_libs="$ac_cv_f77_libs $ac_arg"
+--- Ipopt-3.11.4.orig/ThirdParty/Lapack/configure
++++ Ipopt-3.11.4/ThirdParty/Lapack/configure
+@@ -4221,7 +4221,7 @@
+ 
+           ;;
+           # Ignore these flags.
+-        -lang* | -lcrt[01].o | -lcrtbegin.o | -lc | -lgcc | -libmil | -LANG:=*)
++        -lang* | -lcrt[01].o | -lcrtbegin.o | -lc | -lgcc | -libmil | -little | -LANG:=*)
+           ;;
+         -lkernel32)
+           test x"$CYGWIN" != xyes && ac_cv_f77_libs="$ac_cv_f77_libs $ac_arg"
+--- Ipopt-3.11.4.orig/ThirdParty/Mumps/configure
++++ Ipopt-3.11.4/ThirdParty/Mumps/configure
+@@ -4221,7 +4221,7 @@
+ 
+           ;;
+           # Ignore these flags.
+-        -lang* | -lcrt[01].o | -lcrtbegin.o | -lc | -lgcc | -libmil | -LANG:=*)
++        -lang* | -lcrt[01].o | -lcrtbegin.o | -lc | -lgcc | -libmil | -little |-LANG:=*)
+           ;;
+         -lkernel32)
+           test x"$CYGWIN" != xyes && ac_cv_f77_libs="$ac_cv_f77_libs $ac_arg"

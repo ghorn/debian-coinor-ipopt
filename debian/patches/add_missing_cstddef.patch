@@ -1,0 +1,29 @@
+# Description: add missing cstddef include
+--- Ipopt-3.11.4.orig/Ipopt/src/Common/IpSmartPtr.hpp
++++ Ipopt-3.11.4/Ipopt/src/Common/IpSmartPtr.hpp
+@@ -9,6 +9,16 @@
+ #ifndef __IPSMARTPTR_HPP__
+ #define __IPSMARTPTR_HPP__
+ 
++#ifdef HAVE_CSTDDEF
++# include <cstddef>
++#else
++# ifdef HAVE_STDDEF_H
++#  include <stddef.h>
++# else
++#  error "don't have header file for stddef"
++# endif
++#endif
++
+ #include "IpReferenced.hpp"
+ 
+ #include "IpDebug.hpp"
+--- Ipopt-3.11.4.orig/Ipopt/ipopt.pc.in
++++ Ipopt-3.11.4/Ipopt/ipopt.pc.in
+@@ -8,5 +8,5 @@
+ URL: https://projects.coin-or.org/Ipopt
+ Version: @PACKAGE_VERSION@
+ Libs: -L${libdir} -lipopt @IPOPTLIB_PCLIBS@
+-Cflags: -I${includedir}
++Cflags: -I${includedir} -DHAVE_CSTDDEF
+ Requires: @IPOPTLIB_PCREQUIRES@

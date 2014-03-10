@@ -1,0 +1,36 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/autotools.mk
+
+CPPFLAGS += -I/usr/include/mumps_seq -DHAVE_CSTDDEF
+LDFLAGS += -llapack -lblas -ldmumps -lmpi -ldl
+DEB_CONFIGURE_EXTRA_FLAGS += --enable-static \
+							 --with-mumps-incdir=/usr/include \
+							 --with-mumps-lib=-ldmumps
+
+binary-install/coinor-libipopt1:: debian/stamp-binary-install-coinor-libipopt1
+debian/stamp-binary-install-coinor-libipopt1:
+	find debian/tmp -name libipopt.la -delete
+	touch $@
+
+binary-install/coinor-libipopt-doc:: debian/stamp-binary-install-coinor-libipopt-doc
+debian/stamp-binary-install-coinor-libipopt-doc:
+	rm -f $(CURDIR)/debian/coinor-libipopt-doc/usr/share/doc/coinor-libipopt-doc/html/jquery.js
+	ln -s ../../../javascript/jquery/jquery.js $(CURDIR)/debian/coinor-libipopt-doc/usr/share/doc/coinor-libipopt-doc/html/jquery.js
+	touch $@
+
+build/coinor-libipopt-doc:: debian/stamp-build-coinor-libipopt-doc
+debian/stamp-build-coinor-libipopt-doc:
+	make DESTDIR=$(CURDIR)/debian/tmp doxydoc
+	$(RM) doxydoc/html/*.md5 doxydoc/html/*.dot doxydoc/html/*.map
+	touch $@
+
+get-orig-source:
+	-uscan --rename --upstream-version 0
+	@echo successfully retrieved upstream tarball
+
+clean::
+	$(RM) -r debian/stamp-* doxydoc/html
+	$(RM) Ipopt/contrib/sIPOPT/src/Makefile
+	$(RM) Makefile
