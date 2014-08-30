@@ -1,0 +1,13 @@
+Author: Greg Horn <ghorn@gmail.com>
+Description: remove #define for parallel mumps
+--- a/Ipopt/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp
++++ b/Ipopt/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp
+@@ -12,7 +12,7 @@
+ 
+ // The following line is a fix for otherwise twice-defined global variable
+ // (This would have to be taken out for a parallel MUMPS version!)
+-#define MPI_COMM_WORLD IPOPT_MPI_COMM_WORLD
++// #define MPI_COMM_WORLD IPOPT_MPI_COMM_WORLD
+ // The first header to include is the one for MPI.  
+ #include "mpi.h"
+ 

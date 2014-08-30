@@ -3,11 +3,11 @@
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/autotools.mk
 
-CPPFLAGS += -I/usr/include/mumps_seq -DHAVE_CSTDDEF
-LDFLAGS += -llapack -lblas -ldmumps -lmpi -ldl
+CPPFLAGS += -I/usr/include/openmpi -DHAVE_CSTDDEF -DHAVE_MPI_INITIALIZED
+LDFLAGS += -llapack -lblas -ldmumps -lmpi -lmpi_cxx -ldl
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-static \
 							 --with-mumps-incdir=/usr/include \
-							 --with-mumps-lib=-ldmumps
+							 --with-mumps-lib='-ldmumps -lmpi -lmpi_cxx'
 
 binary-install/coinor-libipopt1:: debian/stamp-binary-install-coinor-libipopt1
 debian/stamp-binary-install-coinor-libipopt1:

@@ -1,4 +1,5 @@
+no_mpi_comm_world.patch
 coinor-ipopt_sh4.patch
 add_missing_cstddef.patch
 doxygen.patch
-mpi-init.patch
+
