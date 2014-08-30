@@ -3525,6 +3525,7 @@ License: other
 
 Files: debian/*
 Copyright: (c) 2009 Roberto C. Sanchez <roberto@connexer.com>
+           (c) 2014 Greg Horn <gregmainland@gmail.com>
 License: GPL-2+ | other
  On Debian systems, the complete text of the GNU General
  Public License can be found in `/usr/share/common-licenses/GPL-2'.

@@ -1,15 +1,15 @@
 Source: coinor-ipopt
 Section: science
 Priority: extra
-Maintainer: Roberto C. Sanchez <roberto@connexer.com>
+Maintainer: Greg Horn <gregmainland@gmail.com>
 Build-Depends: debhelper (>= 5), autotools-dev, gfortran, libblas-dev,
  libmumps-dev (>= 4.9.2.dfsg-4),
  liblapack-dev, doxygen-latex, ghostscript, chrpath, cdbs
 Build-Conflicts: pkg-config
 Standards-Version: 3.9.5
 Homepage: https://projects.coin-or.org/Ipopt
-Vcs-Svn: http://bollin.googlecode.com/svn/coinor-ipopt/trunk/
-Vcs-Browser: http://bollin.googlecode.com/svn/coinor-ipopt/trunk/
+Vcs-Git: https://github.com/ghorn/debian-coinor-ipopt.git
+Vcs-Browser: https://github.com/ghorn/debian-coinor-ipopt.git
 
 Package: coinor-libipopt1
 Section: libs
