@@ -11,7 +11,7 @@
 %%     Stefan Vigerske                        GAMS
 %%
 %%
-%% $Id: documentation.tex 2422 2013-11-09 17:01:38Z stefan $
+%% $Id: documentation.tex 2500 2014-08-16 15:31:35Z stefan $
 %%
 \documentclass[10pt]{article}
 \setlength{\textwidth}{6.3in}       % Text width
@@ -42,7 +42,7 @@
 \title{Introduction to \Ipopt:\\
 A tutorial for downloading, installing, and using \Ipopt}
 
-\author{Revision number of this document: $Revision: 2422 $}
+\author{Revision number of this document: $Revision: 2500 $}
 
 %\date{\today}
 \maketitle
@@ -1283,6 +1283,9 @@ It has been tested on \Matlab versions 7.2 through 7.7. It might very well
 work on earlier versions of \Matlab, but there is also a good chance that it 
 will not. It is unlikely that the software will run with versions prior to 
 \Matlab 6.5.
+
+\textbf{NOTE}: The \Matlab interface \textbf{does not support \Matlab 8.3} (aka, R2014a), as
+it has not been adapted to \Matlab changes in the buildsystem for MEX files.
 
 First, note that some binaries of \Ipopt\ {\tt mex} files are available for download at
 \url{http://www.coin-or.org/download/binary/Ipopt}.
@@ -2767,7 +2770,8 @@ the screen.
 void HS071_NLP::finalize_solution(SolverReturn status,
                                   Index n, const Number* x, const Number* z_L,
                                   const Number* z_U, Index m, const Number* g,
-                                  const Number* lambda, Number obj_value)
+                                  const Number* lambda, Number obj_value,
+                                  const IpoptData* ip_data, IpoptCalculatedQuantities* ip_cq)                                  
 {
   // here is where we would store the solution to variables, or write to a file, etc
   // so we could use the solution. 

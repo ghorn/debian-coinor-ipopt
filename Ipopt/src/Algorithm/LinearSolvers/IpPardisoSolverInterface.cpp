@@ -2,7 +2,7 @@
 // All Rights Reserved.
 // This code is published under the Eclipse Public License.
 //
-// $Id: IpPardisoSolverInterface.cpp 2452 2013-12-18 13:59:16Z stefan $
+// $Id: IpPardisoSolverInterface.cpp 2490 2014-05-26 16:40:51Z stefan $
 //
 // Authors:  Carl Laird, Andreas Waechter     IBM    2005-03-17
 //
@@ -62,7 +62,7 @@
 /* Prototypes for Pardiso's subroutines */
 extern "C"
 {
-#ifdef HAVE_PARDISO_OLDINTERFACE
+#if defined(HAVE_PARDISO_OLDINTERFACE) || defined(HAVE_PARDISO_MKL)
   void PARDISOINIT_FUNC(void* PT, const ipfint* MTYPE, ipfint* IPARM);
 #else
   // The following is a fix to allow linking with Pardiso library under Windows
@@ -400,7 +400,7 @@ namespace Ipopt
     // Call Pardiso's initialization routine
     IPARM_[0] = 0;  // Tell it to fill IPARM with default values(?)
 
-#ifndef HAVE_PARDISO_OLDINTERFACE
+#if ! defined(HAVE_PARDISO_OLDINTERFACE) && ! defined(HAVE_PARDISO_MKL)
     ipfint ERROR = 0;
     ipfint SOLVER = 0; // initialize only direct solver
 
@@ -426,7 +426,7 @@ namespace Ipopt
       Jnlst().Printf(J_DETAILED, J_LINEAR_ALGEBRA,
                      "Using environment OMP_NUM_THREADS = %d as the number of processors for PARDISO.\n", num_procs);
     }
-#if defined(HAVE_PARDISO) && not defined(HAVE_PARDISO_MKL)
+#if defined(HAVE_PARDISO) && ! defined(HAVE_PARDISO_MKL)
     // If we run Pardiso through the linear solver loader,
     // we do not know whether it is the parallel version, so we do not report a warning if OMP_NUM_THREADS is not set.
     // If we run Pardiso from MKL, then OMP_NUM_THREADS does not need to be set, so no warning.
