@@ -12,10 +12,11 @@ distributable.
 Building against coinor-ipopt
 -----------------------------
 
-When building against coinor-ipopt, it may be necessary to pass one of
-'-ldmumps_seq-4.9.2' or '-ldmumps-4.9.2' to the linker.  In the future, this
-may become unnecessary through the use of pkg-config.  However, it is the
-needed in the meantime.  Please see http://bugs.debian.org/592752 for a more
-complete discussion on the subject.
+When building against coinor-ipopt, use pkg-config for compiler and
+linker flags, e.g.:
 
- -- Roberto C. Sanchez <roberto@connexer.com>  Tue, 25 Jan 2011 22:46:39 -0500
+$ pkg-config --cflags ipopt
+$ pkg-config --libs ipopt
+$ g++ `pkg-config --cflags --libs ipopt` <file_name> -o <file_name.out>
+
+ -- Greg Horn <gregmainland@gmail.com>  Thu, 28 Aug 2014 10:41:20 +0200
