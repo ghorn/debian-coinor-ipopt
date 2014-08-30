@@ -2,7 +2,7 @@
 # All Rights Reserved.
 # This file is distributed under the Eclipse Public License.
 
-## $Id: configure.ac 3160 2013-12-17 17:26:54Z tkr $
+## $Id: configure.ac 3202 2014-04-08 09:55:37Z stefan $
 
 # Author:  Andreas Waechter            IBM    2006-04-13
 
@@ -12,7 +12,7 @@
 
 AC_PREREQ(2.59)
 
-AC_INIT([ThirdPartyLapack],[1.4.10],[http://projects.coin-or.org/BuildTools/newticket])
+AC_INIT([ThirdPartyLapack],[1.4.11],[http://projects.coin-or.org/BuildTools/newticket])
 
 AC_COPYRIGHT([
 Copyright 2006 International Business Machines and others.
@@ -30,7 +30,7 @@ AC_CONFIG_SRCDIR(LAPACK/SRC/dlarf.f)
 # /usr/local.
 AC_PREFIX_DEFAULT([`pwd`])
 
-AC_COIN_PROJECTDIR_INIT(Lapack,5:10:4)
+AC_COIN_PROJECTDIR_INIT(Lapack,5:11:4)
 
 #############################################################################
 #                         Standard build tool stuff                         #
