@@ -8,6 +8,7 @@ LDFLAGS += -llapack -lblas -ldmumps -lmpi -lmpi_cxx -ldl
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-static \
 							 --with-mumps-incdir=/usr/include \
 							 --with-mumps-lib='-ldmumps -lmpi -lmpi_cxx'
+DEB_MAKE_CHECK_TARGET = test
 
 binary-install/coinor-libipopt1:: debian/stamp-binary-install-coinor-libipopt1
 debian/stamp-binary-install-coinor-libipopt1:
