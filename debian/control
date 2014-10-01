@@ -3,7 +3,7 @@ Section: science
 Priority: extra
 Maintainer: Greg Horn <gregmainland@gmail.com>
 Build-Depends: debhelper (>= 5), autotools-dev, gfortran, libblas-dev,
- libmumps-dev (>= 4.9.2.dfsg-4),
+ libmumps-seq-dev (>= 4.9.2.dfsg-4),
  liblapack-dev, doxygen-latex, ghostscript, chrpath, cdbs
 Build-Conflicts: pkg-config
 Standards-Version: 3.9.5
@@ -32,7 +32,7 @@ Description: Interior-Point Optimizer, for large-scale nonlinear optimization
 Package: coinor-libipopt-dev
 Section: libdevel
 Architecture: any
-Depends: coinor-libipopt1 (= ${binary:Version}), libmumps-dev, ${shlibs:Depends}, ${misc:Depends}
+Depends: coinor-libipopt1 (= ${binary:Version}), libmumps-seq-dev, ${shlibs:Depends}, ${misc:Depends}
 Description: Interior-Point Optimizer - header files
  Ipopt is an open-source solver for large-scale nonlinear continuous
  optimization. It can be used from modeling environments, such as AMPL,
