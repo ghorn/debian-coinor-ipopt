@@ -1,6 +1,6 @@
 coinor-ipopt (3.11.9-2) unstable; urgency=low
 
-  * Link against sequential MUMPS instead of parallel (Closes: #763621)
+  * Link against sequential MUMPS instead of parallel (Closes: #763612)
   * Enable unit tests
 
  -- Greg Horn <gregmainland@gmail.com>  Wed, 01 Oct 2014 14:41:35 +0200
