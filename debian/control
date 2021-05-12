@@ -51,6 +51,7 @@ Package: coinor-libipopt-doc
 Section: doc
 Architecture: all
 Depends: libjs-jquery, ${misc:Depends}
+Multi-Arch: foreign
 Description: Interior-Point Optimizer - documentation
  Ipopt is an open-source solver for large-scale nonlinear continuous
  optimization. It can be used from modeling environments, such as AMPL,
@@ -82,4 +83,3 @@ Description: Interior-Point Optimizer - debugging symbols
  the available solvers that is Free Software and included in Debian).
  .
  This package contains the debugging symbols.
-
