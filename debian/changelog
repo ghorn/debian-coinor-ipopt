@@ -1,3 +1,10 @@
+coinor-ipopt (3.11.9-3) UNRELEASED; urgency=medium
+
+  * Remove constraints unnecessary since buster:
+    + Build-Depends: Drop versioned constraint on libmumps-seq-dev.
+
+ -- Debian Janitor <janitor@jelmer.uk>  Tue, 12 Oct 2021 05:04:42 -0000
+
 coinor-ipopt (3.11.9-2) unstable; urgency=low
 
   * Link against sequential MUMPS instead of parallel (Closes: #763612)

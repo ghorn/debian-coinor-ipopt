@@ -3,7 +3,7 @@ Section: science
 Priority: extra
 Maintainer: Greg Horn <gregmainland@gmail.com>
 Build-Depends: debhelper (>= 5), autotools-dev, gfortran, libblas-dev,
- libmumps-seq-dev (>= 4.9.2.dfsg-4),
+ libmumps-seq-dev,
  liblapack-dev, doxygen-latex, ghostscript, chrpath, cdbs
 Build-Conflicts: pkg-config
 Standards-Version: 3.9.5
@@ -82,4 +82,3 @@ Description: Interior-Point Optimizer - debugging symbols
  the available solvers that is Free Software and included in Debian).
  .
  This package contains the debugging symbols.
-
